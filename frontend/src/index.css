@@ -1,0 +1,432 @@
+/* ================================
+          Table of content
+
+ 1.global
+ 2.sidebar
+ 3.chatArea
+ 4.messageSelf
+ 5.messageOthers
+ 6.welcome
+ 7.createGroups
+ 8.login
+ 9.onlineUsers && groups
+ 10.dark mode
+ 11.media query
+
+================================ */
+
+
+
+
+
+
+
+/* =================
+      1.global
+================= */
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.app{
+  background-color: #dddedd;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cn-name{
+  color: rgba(0, 0, 0, 0.54);
+  font-weight: bold;
+}
+.cn-icon{
+  border-radius: 50%;
+  font-weight: bolder;
+  font-size: 2rem;
+  padding: 4px;
+  color: white;
+  background-color: #d9d9d9;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  justify-self: center;
+  align-self: center;
+}
+.timeStamp{
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.54);
+}
+.main-container{
+  background-color: #f4f5f8;
+  height: 90vh;
+  width: 90vw;
+  display: flex;
+  border-radius: 20px;
+}
+
+/* =================
+    2.sidebar
+================ */
+.sidebar{
+  flex: 0.3;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar .header{
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px 5px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.sidebar .search{
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px 5px;
+  margin: 10px;
+}
+.sidebar .search input{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  font-size: 1.25rem;
+}
+.sidebar .conversations{
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px 15px;
+  margin: 10px;
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+.sidebar .conversations ::-webkit-scrollbar{
+  display: none;
+}
+.sidebar .conversations .conversationItem{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.4s;
+  
+}
+.sidebar .conversations .conversationItem:hover{
+  background-color: #dddedd;
+  cursor: pointer;
+}
+.sidebar .conversations .conversationItem .lastMsg{
+  font-size: 0.75rem;
+}
+.sidebar .conversations .conversationItem .timeStamp{
+  position: absolute;
+  bottom: 8px;
+  right: 11px;
+  font-size: 0.75rem;
+}
+
+/* ================= 
+    3.chatArea
+ ================ */
+.chatArea{
+  flex: 0.7;
+  display: flex;
+  flex-direction: column;
+}
+.chatArea ::-webkit-scrollbar{
+  display: none;
+}
+.chatArea .header{
+  display: flex;
+  justify-content: space-between;
+}
+.personInfo{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.chatArea .header, .chatArea .inptArea{
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px 15px;
+  margin: 10px;
+}
+.chatArea .msgsContainer{
+  flex-grow: 1;
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px 15px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: scroll;
+}
+.chatArea .inptArea{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.chatArea .inptArea input{
+  background-color: transparent;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.25rem;
+}
+
+/* ================= 
+    4.messageSelf
+ ================ */
+.messageSelf{
+  background-color: #63d7b0;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  max-width: 50%;
+}
+.self-timeStamp{
+  align-self: flex-end;
+}
+
+/* ================= 
+    5.messageOthers
+ ================ */
+.messageOthers{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.messageOthers .othersMsgContent{
+  background-color: #d9d9d9;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+  
+}
+.messageOthers .othersMsgContent .timeStamp{
+  align-self: flex-end;
+}
+
+/* ================= 
+      6.welcome
+ ================ */  
+.welcome{
+  flex: 0.7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.welcome img{
+  height: 25vh;
+}
+
+/* ================= 
+    7.createGroups
+ ================ */ 
+.createGroups{
+  flex: 0.7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.createGroups input{
+  border: none;
+  outline: none;
+  font-size: 1.25rem;
+  background-color: transparent;
+}
+.createGroups .createGroupsContent{
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ================= 
+       8.login
+ ================ */ 
+ .login{
+  display: flex;
+  background-color: #f4f5f8;
+  border-radius: 20px;
+  height: 90vh;
+  width: 90vw;
+ }
+ .login .left{
+  flex: 0.3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+ .login .left img{
+  height: 25vh;
+ }
+ .login .right{
+  flex: 0.7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+  background-color: white;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+ }
+ .login .right h1{
+  color: #63d7b0;
+  margin-bottom: 15px;
+ }
+ .login .right input{
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1.25rem;
+  border: 1px solid #63d7b0;
+  outline: none;
+
+ }
+ .login .right button{
+  padding: 10px 20px;
+  border-radius: 6px;
+  background-color: #63d7b0;
+  font-size: 1.24rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.4s;
+ }
+
+.login .right button:hover{
+  opacity: 0.84;
+}
+
+
+/* ============================== 
+     9.onlineUsers && groups
+ ============================= */ 
+ .onlineUsers, .groups{
+  flex: 0.7;
+  display: flex;
+  flex-direction: column;
+ }
+ .onlineUsers .header, .groups .header{
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px 15px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+ }
+ .onlineUsers .header img, .groups .header img{
+  height: 40px;
+  
+ }
+ .onlineUsers .header p, .groups .header p{
+  font-weight: bolder;
+  font-size: 1.25rem;
+  color: #63d7b0;
+ }
+ .onlineUsers .users, .groups .users{
+  overflow-y: scroll;
+ }
+ .onlineUsers .users::-webkit-scrollbar, .groups .users::-webkit-scrollbar{
+  display: none;
+ }
+ .onlineUsers .users .user, .groups .users .group{
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px 15px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+ }
+
+/* ============================== 
+         10.dark mode
+ ============================= */ 
+.dark .header,
+.dark .users .user,
+.dark .groups .group,
+.dark .createGroups .createGroupsContent,
+.dark .search,
+.dark .conversations,
+.dark .chatArea .msgsContainer,
+.dark .chatArea .inptArea,
+.dark .login .right{
+  background-color: #383838;
+}
+.dark button,
+.dark input,
+.dark .main-container,
+.dark .chatArea .msgsContainer,
+.dark .chatArea .inptArea,
+.dark .cn-name,
+.dark .timeStamp{
+  color: whitesmoke;
+}
+.dark .sidebar .conversations .conversationItem:hover{
+  background-color: #212121;
+}
+.dark .messageOthers .othersMsgContent,
+.dark .main-container,
+.dark .login{
+background-color: #212121;}
+.dark .cn-icon{
+  color: #383838;
+}
+
+/* ============================== 
+         11.media query
+ ============================= */ 
+ @media (max-width: 800px) {
+  .sidebar{
+    flex: 0.1;
+  }
+  .sidebar .header{
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
+  }
+  .sidebar .header div{
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar .search,
+  .sidebar .conversations{
+    display: none;
+  }
+  .chatArea,
+  .welcome,
+  .onlineUsers,
+  .groups,
+  .createGroups{
+    flex: 0.9;
+  }
+  .login .left{
+    display: none;
+  }
+  .login .right{
+    flex: 1;
+    border-radius: 20px;
+  }
+ }
